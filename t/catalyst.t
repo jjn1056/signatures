@@ -37,4 +37,3 @@ use Catalyst::Test 'MyApp';
 ok my ($res, $c) = ctx_request('/test_model');
 
 done_testing;
-
