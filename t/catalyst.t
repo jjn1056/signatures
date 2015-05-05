@@ -19,7 +19,7 @@ BEGIN {
 
   use signatures;
 
-  sub test_model($self, $c) :Local {
+  sub test_model($self, $c) :Local Does(Dummy) {
     Test::Most::is ref $self, 'MyApp::Controller::Root';
     Test::Most::is ref $c, 'MyApp';
 }
@@ -34,6 +34,6 @@ BEGIN {
 
 use Catalyst::Test 'MyApp';
 
-ok my ($res, $c) = ctx_request('/test_model');
+ok my ($res, $c) = ctx_request('/root/test_model');
 
-done_testing;
+done_testing(3);
